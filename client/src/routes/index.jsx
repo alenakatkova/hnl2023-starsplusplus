@@ -3,6 +3,7 @@ import SignIn from "./Signin.jsx";
 import SignUp from "./SignUp.jsx";
 import Layout from "../components/Layout.jsx";
 import AddCompany from "./AddCompany.jsx";
+import CompanyDetails from "./CompanyDetails.jsx";
 
 export const routes = [
   {
@@ -46,7 +47,16 @@ export const routes = [
         element: <AddCompany />,
         loader: () => {
           return {
-            data: "nothing in the signup",
+            data: "nothing in the add company form",
+          };
+        },
+      },
+      {
+        path: "/dashboard/company-details",
+        element: <CompanyDetails />,
+        loader: () => {
+          return {
+            data: "nothing in the company details",
           };
         },
       },
