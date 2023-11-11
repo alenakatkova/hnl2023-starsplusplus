@@ -26,23 +26,38 @@ app.add_middleware(
 async def read_root() -> dict:
     return {"message": "Welcome to our amazing app."}
 
+# class Metric(BaseModel):
+#     def __init__(self, id: str, name: str, unit: str):
+#         self.id = id
+#         self.name = name
+#         self.unit = unit
+#
+# class ImpactArea(BaseModel):
+#     def __init__(self, id: str, value: str, metrics: List[Metric]):
+#         self.id = id
+#         self.value = value
+#         self.metrics = metrics
+#
+# class CompanyData(BaseModel):
+#     def __init__(self, companyName: str, address: str, impactAreas: List[ImpactArea]):
+#         self.companyName = companyName
+#         self.address = address
+#         self.impactAreas = impactAreas
+
 class Metric(BaseModel):
-    def __init__(self, id: str, name: str, unit: str):
-        self.id = id
-        self.name = name
-        self.unit = unit
+    id: str
+    name: str
+    unit: str
 
 class ImpactArea(BaseModel):
-    def __init__(self, id: str, value: str, metrics: List[Metric]):
-        self.id = id
-        self.value = value
-        self.metrics = metrics
+    id: str
+    value: str
+    metrics: List[Metric]
 
 class CompanyData(BaseModel):
-    def __init__(self, companyName: str, address: str, impactAreas: List[ImpactArea]):
-        self.companyName = companyName
-        self.address = address
-        self.impactAreas = impactAreas
+    companyName: str
+    address: str
+    impactAreas: List[ImpactArea]
 
 # In-memory storage for demonstration purposes
 companies_database = []
