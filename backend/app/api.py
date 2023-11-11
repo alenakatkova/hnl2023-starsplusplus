@@ -3,6 +3,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import pandas as pd
 from typing import List
+import io
+import numpy as np
+import json
+import os
 
 
 app = FastAPI()
@@ -60,8 +64,7 @@ class CompanyData(BaseModel):
     impactAreas: List[ImpactArea]
 
 # In-memory storage for demonstration purposes
-companies_database = []
-
+company_database = []
 @app.post("/add-company/")
 async def add_company(company_data: CompanyData):
     """
@@ -70,7 +73,10 @@ async def add_company(company_data: CompanyData):
     Parameters:
     - company_data: JSON payload containing company information.
     """
-    companies_database.append(company_data)
+    
+    with open(company_data.companyName+".json", "a") as file:
+        json.dump(company_data.dict(), file, indent=2)
+    
     return {"message": "Company created successfully", "company_data": company_data}
 
 @app.get("/company-details/")
@@ -81,10 +87,13 @@ async def get_company(name: str):
     Parameters:
     - name: The name of the company to retrieve.
     """
-    for company in companies_database:
-        if company.companyName == name:
-            return {"company_data": company}
-    raise HTTPException(status_code=404, detail="Company not found")
+    filename = name+'.json'
+    if os.path.exists(filename):
+        with open(filename, 'r') as f:
+            company_data = f.read()
+        return {"company_data": company_data}
+    else:
+        raise HTTPException(status_code=404, detail="Company not found")
 
 
 

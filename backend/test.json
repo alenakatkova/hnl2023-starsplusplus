@@ -1,0 +1,17 @@
+{
+  "companyName": "test",
+  "address": "fgesrt",
+  "impactAreas": [
+    {
+      "id": "1699736024254",
+      "value": "r3",
+      "metrics": [
+        {
+          "id": "1699736026337",
+          "name": "3r2",
+          "unit": "r23"
+        }
+      ]
+    }
+  ]
+}
