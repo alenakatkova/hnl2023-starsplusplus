@@ -1,8 +1,21 @@
-import Todos from "../components/Todos.jsx";
-import Header from "../components/Header.jsx";
+import { useLoaderData } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function Dashboard() {
-  return <>nothing yet</>;
+  const [events, setEvents] = useState([]);
+  const data = useLoaderData();
+  useEffect(() => {
+    console.log(data);
+    setEvents(data.data);
+  }, [events]);
+  return (
+    <div>
+      {events &&
+        events.map((event) => {
+          return <div key={event.name}>{JSON.stringify(event)}</div>;
+        })}
+    </div>
+  );
 }
 
 export default Dashboard;

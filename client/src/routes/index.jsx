@@ -8,6 +8,30 @@ import SetGoals from "./SetGoals.jsx";
 import Goals from "./Goals.jsx";
 import AddEvent from "./AddEvent.jsx";
 
+const demoEvents = [
+  {
+    id: 1,
+    name: "Healthcare Campaign",
+    dates: "2023-07-15 to 2023-07-20",
+    location: "Geneva, Switzerland",
+    metrics: ["Number of Clinics Set Up"],
+  },
+  {
+    id: 2,
+    name: "Education Awareness Week",
+    dates: "2023-09-01 to 2023-09-07",
+    location: "Geneva, Switzerland",
+    metrics: ["Schools Built", "Children Enrolled"],
+  },
+  {
+    id: 3,
+    name: "Emergency Relief Drive",
+    dates: "2023-11-10 to 2023-11-15",
+    location: "Geneva, Switzerland",
+    metrics: ["Relief Packages Distributed", "Families Assisted"],
+  },
+];
+
 const demoGoals = [
   {
     area: "Healthcare Assistance",
@@ -104,7 +128,7 @@ export const routes = [
     element: <Layout />,
     loader: () => {
       return {
-        data: "nothing in the layout",
+        data: "layout",
       };
     },
     children: [
@@ -113,7 +137,7 @@ export const routes = [
         element: <Dashboard />,
         loader: () => {
           return {
-            data: "nothing in the dashboard",
+            data: demoEvents,
           };
         },
       },
