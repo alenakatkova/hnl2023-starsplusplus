@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -7,12 +8,17 @@ const Header = () => {
       component="nav"
       sx={{
         display: "flex",
-        justifyContent: "space-between",
-        flexWrap: "wrap",
+        flexDirection: "column",
+        // justifyContent: "space-between",
+        // flexWrap: "wrap",
         padding: "0.5rem",
+        gap: 2,
       }}
     >
-      <Typography component="h1">Todos</Typography>
+      <NavLink to="/signin">Sign In</NavLink>
+      <NavLink to="/signup">Sign Up</NavLink>
+      <NavLink to="/dashboard">Dashboard</NavLink>
+      <NavLink to="/dashboard/add-company">Add Company</NavLink>
     </Box>
   );
 };
