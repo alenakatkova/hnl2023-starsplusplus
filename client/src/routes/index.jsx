@@ -7,7 +7,7 @@ import CompanyDetails from "./CompanyDetails.jsx";
 import SetGoals from "./SetGoals.jsx";
 
 function companyDetailsLoader() {
-  return fetch("http://localhost:8000/company-details").then((res) =>
+  return fetch("http://localhost:8000/company-details/?name=test").then((res) =>
     res.json(),
   );
 }
