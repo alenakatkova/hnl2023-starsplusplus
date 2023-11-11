@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function SignIn() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,23 +20,18 @@ function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8000/signin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-      console.log(data); // Handle the response as needed
+      navigate("/dashboard");
     } catch (error) {
       console.error("Error:", error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Box
+      component="form"
+      sx={{ width: "320px", display: "flex", flexDirection: "column", gap: 2 }}
+      onSubmit={handleSubmit}
+    >
       <TextField
         name="email"
         label="Email"
@@ -53,7 +50,7 @@ function SignIn() {
       <Button type="submit" variant="contained" color="primary">
         Sign In
       </Button>
-    </form>
+    </Box>
   );
 }
 
