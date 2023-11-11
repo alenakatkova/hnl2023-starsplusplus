@@ -5,6 +5,50 @@ import Layout from "../components/Layout.jsx";
 import AddCompany from "./AddCompany.jsx";
 import CompanyDetails from "./CompanyDetails.jsx";
 import SetGoals from "./SetGoals.jsx";
+import Goals from "./Goals.jsx";
+
+const demoGoals = [
+  {
+    area: "Healthcare Assistance",
+    metric: "Number of Clinics Set Up",
+    year: 2023,
+    target: 15,
+    currentValue: 8,
+    unit: "clinics",
+  },
+  {
+    area: "Education for Children",
+    metric: "Schools Built",
+    year: 2022,
+    target: 10,
+    currentValue: 10,
+    unit: "schools",
+  },
+  {
+    area: "Education for Children",
+    metric: "Children Enrolled",
+    year: 2023,
+    target: 200,
+    currentValue: 150,
+    unit: "students",
+  },
+  {
+    area: "Emergency Relief",
+    metric: "Relief Packages Distributed",
+    year: 2021,
+    target: 1000,
+    currentValue: 1000,
+    unit: "packages",
+  },
+  {
+    area: "Emergency Relief",
+    metric: "Families Assisted",
+    year: 2023,
+    target: 500,
+    currentValue: 300,
+    unit: "families",
+  },
+];
 
 export const routes = [
   {
@@ -67,6 +111,15 @@ export const routes = [
         loader: () => {
           return {
             data: "Set Goals",
+          };
+        },
+      },
+      {
+        path: "/dashboard/goals",
+        element: <Goals />,
+        loader: () => {
+          return {
+            data: demoGoals,
           };
         },
       },

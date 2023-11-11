@@ -9,8 +9,6 @@ const Header = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        // justifyContent: "space-between",
-        // flexWrap: "wrap",
         padding: "0.5rem",
         gap: 2,
       }}
@@ -21,6 +19,7 @@ const Header = () => {
       <NavLink to="/dashboard/add-company">Add Company</NavLink>
       <NavLink to="/dashboard/company-details">Company Details</NavLink>
       <NavLink to="/dashboard/set-goals">Set Goals</NavLink>
+      <NavLink to="/dashboard/goals">Goals</NavLink>
     </Box>
   );
 };
