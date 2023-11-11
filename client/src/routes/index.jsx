@@ -4,6 +4,7 @@ import SignUp from "./SignUp.jsx";
 import Layout from "../components/Layout.jsx";
 import AddCompany from "./AddCompany.jsx";
 import CompanyDetails from "./CompanyDetails.jsx";
+import SetGoals from "./SetGoals.jsx";
 
 export const routes = [
   {
@@ -57,6 +58,15 @@ export const routes = [
         loader: () => {
           return {
             data: "nothing in the company details",
+          };
+        },
+      },
+      {
+        path: "/dashboard/set-goals",
+        element: <SetGoals />,
+        loader: () => {
+          return {
+            data: "Set Goals",
           };
         },
       },
