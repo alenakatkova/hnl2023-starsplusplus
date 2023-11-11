@@ -1,5 +1,6 @@
 import Dashboard from "./Dashboard";
 import SignIn from "./Signin.jsx";
+import SignUp from "./SignUp.jsx";
 
 export const routes = [
   {
@@ -17,6 +18,15 @@ export const routes = [
     loader: () => {
       return {
         data: "nothing in the signin",
+      };
+    },
+  },
+  {
+    path: "/signup",
+    element: <SignUp />,
+    loader: () => {
+      return {
+        data: "nothing in the signup",
       };
     },
   },
