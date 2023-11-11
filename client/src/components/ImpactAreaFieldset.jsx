@@ -57,7 +57,11 @@ function ImpactAreaComponent({
         </Box>
       ))}
 
-      <Button onClick={addMetric} startIcon={<AddCircleOutlineIcon />}>
+      <Button
+        onClick={addMetric}
+        startIcon={<AddCircleOutlineIcon />}
+        sx={{ backgroundColor: "white" }}
+      >
         Add Metric
       </Button>
     </Box>

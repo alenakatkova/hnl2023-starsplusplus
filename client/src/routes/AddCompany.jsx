@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { TextField, Button, Box } from "@mui/material";
+import { TextField, Button, Box, Typography } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import ImpactAreaComponent from "../components/ImpactAreaFieldset.jsx";
+import { CARD_STYLES } from "../style-constants.js";
 
 function AddCompany() {
   const [companyData, setCompanyData] = useState({
@@ -97,51 +98,64 @@ function AddCompany() {
   };
 
   return (
-    <Box
-      component="form"
-      sx={{ width: "520px", display: "flex", flexDirection: "column", gap: 2 }}
-      onSubmit={handleSubmit}
-    >
-      <TextField
-        name="companyName"
-        label="Company Name"
-        variant="outlined"
-        value={companyData.companyName}
-        onChange={handleCompanyChange}
-        required={true}
-      />
-      <TextField
-        name="address"
-        label="Address"
-        variant="outlined"
-        value={companyData.address}
-        onChange={handleCompanyChange}
-      />
-      {companyData.impactAreas.map((impactArea, areaIndex) => (
-        <ImpactAreaComponent
-          showAreaDeleteButton={companyData.impactAreas.length > 1}
-          key={impactArea.id}
-          impactArea={impactArea}
-          onImpactAreaChange={(e) => handleImpactAreaChange(areaIndex, e)}
-          onMetricChange={(metricIndex, e) =>
-            handleMetricChange(areaIndex, metricIndex, e)
-          }
-          addMetric={() => addMetric(areaIndex)}
-          removeImpactArea={() => removeImpactArea(areaIndex)}
-          removeMetric={(metricIndex) => removeMetric(areaIndex, metricIndex)}
-        />
-      ))}
-      <Button onClick={addImpactArea} startIcon={<AddCircleOutlineIcon />}>
-        Add Impact Area
-      </Button>
-      <Button
-        type="submit"
-        variant="contained"
-        color="primary"
-        disabled={!isFormValid()}
+    <Box>
+      <Typography variant="h1">Create Company</Typography>
+      <Box
+        component="form"
+        sx={{
+          ...CARD_STYLES,
+          display: "flex",
+          flexDirection: "column",
+          gap: 2,
+          width: "50%",
+        }}
+        onSubmit={handleSubmit}
       >
-        Submit
-      </Button>
+        <TextField
+          name="companyName"
+          label="Company Name"
+          variant="outlined"
+          value={companyData.companyName}
+          onChange={handleCompanyChange}
+          required={true}
+        />
+        <TextField
+          name="address"
+          label="Address"
+          variant="outlined"
+          value={companyData.address}
+          onChange={handleCompanyChange}
+        />
+        {companyData.impactAreas.map((impactArea, areaIndex) => (
+          <ImpactAreaComponent
+            showAreaDeleteButton={companyData.impactAreas.length > 1}
+            key={impactArea.id}
+            impactArea={impactArea}
+            onImpactAreaChange={(e) => handleImpactAreaChange(areaIndex, e)}
+            onMetricChange={(metricIndex, e) =>
+              handleMetricChange(areaIndex, metricIndex, e)
+            }
+            addMetric={() => addMetric(areaIndex)}
+            removeImpactArea={() => removeImpactArea(areaIndex)}
+            removeMetric={(metricIndex) => removeMetric(areaIndex, metricIndex)}
+          />
+        ))}
+        <Button
+          onClick={addImpactArea}
+          startIcon={<AddCircleOutlineIcon />}
+          sx={{ backgroundColor: "white" }}
+        >
+          Add Impact Area
+        </Button>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          disabled={!isFormValid()}
+        >
+          Submit
+        </Button>
+      </Box>
     </Box>
   );
 }
