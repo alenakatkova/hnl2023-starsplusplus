@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField, Button, Box, Typography } from "@mui/material";
+import { TextField, Button, Box, Typography, FormControl } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import ImpactAreaComponent from "../components/ImpactAreaFieldset.jsx";
 import { CARD_STYLES } from "../style-constants.js";
@@ -111,21 +111,43 @@ function AddCompany() {
         }}
         onSubmit={handleSubmit}
       >
-        <TextField
-          name="companyName"
-          label="Company Name"
-          variant="outlined"
-          value={companyData.companyName}
-          onChange={handleCompanyChange}
-          required={true}
-        />
-        <TextField
-          name="address"
-          label="Address"
-          variant="outlined"
-          value={companyData.address}
-          onChange={handleCompanyChange}
-        />
+        <FormControl fullWidth>
+          <Typography
+            component="label"
+            sx={{
+              fontSize: "18px",
+              fontWeight: 400,
+              marginBottom: "15px",
+            }}
+          >
+            Company Name
+          </Typography>
+          <TextField
+            name="companyName"
+            variant="outlined"
+            value={companyData.companyName}
+            onChange={handleCompanyChange}
+            required={true}
+          />
+        </FormControl>
+        <FormControl fullWidth>
+          <Typography
+            component="label"
+            sx={{
+              fontSize: "18px",
+              fontWeight: 400,
+              marginBottom: "15px",
+            }}
+          >
+            Address
+          </Typography>
+          <TextField
+            name="address"
+            variant="outlined"
+            value={companyData.address}
+            onChange={handleCompanyChange}
+          />
+        </FormControl>
         {companyData.impactAreas.map((impactArea, areaIndex) => (
           <ImpactAreaComponent
             showAreaDeleteButton={companyData.impactAreas.length > 1}
