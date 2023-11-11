@@ -10,7 +10,7 @@ import {
   Typography,
   Grid,
 } from "@mui/material";
-import { FORM_STYLES } from "../style-constants.js";
+import { CARD_STYLES } from "../style-constants.js";
 
 const ngoDetails = {
   companyName: "Global Humanitarian Aid",
@@ -73,7 +73,7 @@ function SetGoals() {
         component="form"
         onSubmit={handleSubmit}
         sx={{
-          ...FORM_STYLES,
+          ...CARD_STYLES,
           width: "50%",
           "& .MuiFormControl-root": { m: 1 },
         }}

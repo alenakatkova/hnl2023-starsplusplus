@@ -16,9 +16,15 @@ const theme = createTheme({
       color: "black",
       marginBottom: "40px",
     },
+    h2: {
+      fontSize: "24px",
+      fontWeight: 500,
+      color: "black",
+      marginBottom: "10px",
+      marginTop: 0,
+    },
   },
   components: {
-    // Name of the component
     MuiTextField: {
       styleOverrides: {
         root: {
@@ -35,7 +41,6 @@ const theme = createTheme({
     },
     MuiButton: {
       styleOverrides: {
-        // Name of the slot
         root: {
           backgroundColor: "#6C798C",
           textTransform: "none",

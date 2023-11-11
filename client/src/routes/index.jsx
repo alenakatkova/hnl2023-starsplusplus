@@ -15,6 +15,7 @@ const demoEvents = [
     dates: "2023-07-15 to 2023-07-20",
     location: "Geneva, Switzerland",
     metrics: ["Number of Clinics Set Up"],
+    participants: 27,
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const demoEvents = [
     dates: "2023-09-01 to 2023-09-07",
     location: "Geneva, Switzerland",
     metrics: ["Schools Built", "Children Enrolled"],
+    participants: 133,
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ const demoEvents = [
     dates: "2023-11-10 to 2023-11-15",
     location: "Geneva, Switzerland",
     metrics: ["Relief Packages Distributed", "Families Assisted"],
+    participants: 56,
   },
 ];
 

@@ -73,7 +73,9 @@ const Layout = () => {
       </Grid>
       <Grid md={9} item sx={{ width: "100%", boxSizing: "border-box" }}>
         <DashboardTopBar />
-        <Box sx={{ paddingLeft: "70px", paddingTop: "40px" }}>
+        <Box
+          sx={{ paddingLeft: "50px", paddingRight: "50px", paddingTop: "40px" }}
+        >
           <Outlet />
         </Box>
       </Grid>
