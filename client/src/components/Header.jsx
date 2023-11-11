@@ -20,6 +20,7 @@ const Header = () => {
       <NavLink to="/dashboard/company-details">Company Details</NavLink>
       <NavLink to="/dashboard/set-goals">Set Goals</NavLink>
       <NavLink to="/dashboard/goals">Goals</NavLink>
+      <NavLink to="/dashboard/add-event">Add Event</NavLink>
     </Box>
   );
 };

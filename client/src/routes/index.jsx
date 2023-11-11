@@ -6,6 +6,7 @@ import AddCompany from "./AddCompany.jsx";
 import CompanyDetails from "./CompanyDetails.jsx";
 import SetGoals from "./SetGoals.jsx";
 import Goals from "./Goals.jsx";
+import AddEvent from "./AddEvent.jsx";
 
 const demoGoals = [
   {
@@ -49,6 +50,35 @@ const demoGoals = [
     unit: "families",
   },
 ];
+
+const demoNgo = {
+  companyName: "Global Humanitarian Aid",
+  address: "456 Peace Road, Geneva, Switzerland",
+  impactAreas: [
+    {
+      id: 1,
+      value: "Healthcare Assistance",
+      metrics: [{ id: 101, name: "Number of Clinics Set Up", unit: "clinics" }],
+    },
+    {
+      id: 2,
+      value: "Education for Children",
+      metrics: [
+        { id: 201, name: "Schools Built", unit: "schools" },
+        { id: 202, name: "Children Enrolled", unit: "students" },
+        { id: 203, name: "Grant Allocated", unit: "grants" },
+      ],
+    },
+    {
+      id: 3,
+      value: "Emergency Relief",
+      metrics: [
+        { id: 301, name: "Relief Packages Distributed", unit: "packages" },
+        { id: 302, name: "Families Assisted", unit: "families" },
+      ],
+    },
+  ],
+};
 
 export const routes = [
   {
@@ -120,6 +150,15 @@ export const routes = [
         loader: () => {
           return {
             data: demoGoals,
+          };
+        },
+      },
+      {
+        path: "/dashboard/add-event",
+        element: <AddEvent />,
+        loader: () => {
+          return {
+            data: demoNgo,
           };
         },
       },
