@@ -7,6 +7,7 @@ import CompanyDetails from "./CompanyDetails.jsx";
 import SetGoals from "./SetGoals.jsx";
 import Goals from "./Goals.jsx";
 import AddEvent from "./AddEvent.jsx";
+import CreateCustomForm from "./CreateCustomForm.jsx";
 
 const demoEvents = [
   {
@@ -186,6 +187,15 @@ export const routes = [
         loader: () => {
           return {
             data: demoNgo,
+          };
+        },
+      },
+      {
+        path: "/dashboard/create-custom-form",
+        element: <CreateCustomForm />,
+        loader: () => {
+          return {
+            data: demoEvents,
           };
         },
       },

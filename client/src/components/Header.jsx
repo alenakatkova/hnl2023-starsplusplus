@@ -92,18 +92,24 @@ const Header = () => {
         </NavLink>
         <NavLink to="/dashboard/company-details">
           <Typography component="span" sx={NAV_LINK_STYLES}>
-            Company Details
+            Company Details :: NOT STYLED YET
           </Typography>
         </NavLink>
         <NavLink to="/dashboard/goals">
           <Typography component="span" sx={NAV_LINK_STYLES}>
-            Goals
+            Goals :: NOT STYLED YET
           </Typography>
         </NavLink>
 
         <NavLink to="/dashboard/events">
           <Typography component="span" sx={NAV_LINK_STYLES}>
-            Events
+            Events :: NOT WORKING YET
+          </Typography>
+        </NavLink>
+
+        <NavLink to="/dashboard/create-custom-form">
+          <Typography component="span" sx={NAV_LINK_STYLES}>
+            Create custom from :: SHOULD MOVE TO EVENTS PAGE
           </Typography>
         </NavLink>
       </Box>

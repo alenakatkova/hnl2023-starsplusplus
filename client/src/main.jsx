@@ -50,6 +50,7 @@ const theme = createTheme({
           boxShadow: "none",
           minWidth: "60%",
           fontSize: "18px",
+          color: "white",
         },
       },
     },

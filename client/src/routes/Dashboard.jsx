@@ -9,9 +9,9 @@ function Dashboard() {
   const [events, setEvents] = useState([]);
   const data = useLoaderData();
   useEffect(() => {
-    console.log(data);
     setEvents(data.data);
   }, [events]);
+
   return (
     <Box>
       <Typography variant="h1">Dashboard</Typography>
