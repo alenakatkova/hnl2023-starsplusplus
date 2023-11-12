@@ -49,6 +49,14 @@ const theme = createTheme({
         },
       },
     },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        notchedOutline: {
+          border: "none",
+        },
+      },
+    },
+
     MuiButton: {
       styleOverrides: {
         root: {

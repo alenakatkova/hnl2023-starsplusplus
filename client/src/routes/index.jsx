@@ -9,6 +9,7 @@ import Goals from "./Goals.jsx";
 import AddEvent from "./AddEvent.jsx";
 import CreateCustomForm from "./CreateCustomForm.jsx";
 import Events from "./Events.jsx";
+import SampleForm from "./SampleForm.jsx";
 
 const demoEvents = [
   {
@@ -116,11 +117,20 @@ function companyDetailsLoader() {
 }
 export const routes = [
   {
-    path: "/signin",
+    path: "/",
     element: <SignIn />,
     loader: () => {
       return {
         data: "nothing in the signin",
+      };
+    },
+  },
+  {
+    path: "/sample-form",
+    element: <SampleForm />,
+    loader: () => {
+      return {
+        data: "sample form data",
       };
     },
   },
