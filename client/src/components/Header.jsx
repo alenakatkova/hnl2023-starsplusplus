@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const AAD_NAV_LINK_STYLES = {
   display: "inline-block",
@@ -35,7 +36,9 @@ const Header = () => {
   return (
     <Box
       sx={{
-        padding: "70px 40px",
+        px: "40px",
+        paddingTop: "35px",
+        paddingBottom: "30px",
         backgroundColor: "#F8F8FB",
         height: "100vh",
       }}
@@ -52,15 +55,13 @@ const Header = () => {
         <Box
           sx={{
             boxSizing: "border-box",
-            width: "100%",
-            padding: "20px",
-            backgroundColor: "gray",
-            marginBottom: "40px",
+            marginBottom: "50px",
             textAlign: "center",
           }}
         >
-          LOGO
+          <img src={logo} alt="Company Logo" width="160px" />
         </Box>
+
         <NavLink to="/dashboard/add-company">
           <Typography component="span" sx={PLUS_STYLES}>
             +

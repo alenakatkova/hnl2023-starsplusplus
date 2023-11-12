@@ -2,15 +2,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import { Grid } from "@mui/material";
 
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  InputBase,
-  Box,
-} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import { AppBar, Toolbar, IconButton, Typography, Box } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 
@@ -25,6 +17,7 @@ function DashboardTopBar() {
         borderColor: "white",
         boxShadow: "0px 2px 11px 0px #94949440",
         backgroundColor: "white",
+        py: "9px",
       }}
     >
       <Toolbar>
