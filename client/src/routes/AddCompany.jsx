@@ -22,7 +22,7 @@ function AddCompany() {
     const newImpactAreas = [...companyData.impactAreas];
     const newMetrics = [
       ...newImpactAreas[areaIndex].metrics,
-      { id: Date.now(), name: "", unit: "" },
+      { id: Date.now().toString(), name: "", unit: "" },
     ];
     newImpactAreas[areaIndex].metrics = newMetrics;
     setCompanyData({ ...companyData, impactAreas: newImpactAreas });
@@ -49,7 +49,7 @@ function AddCompany() {
       ...companyData,
       impactAreas: [
         ...companyData.impactAreas,
-        { id: Date.now(), value: "", metrics: [] },
+        { id: Date.now().toString(), value: "", metrics: [] },
       ],
     });
   };
@@ -95,11 +95,18 @@ function AddCompany() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(companyData);
+    fetch("http://localhost:8000/add-company", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(companyData),
+    }).then((res) => console.log(res));
   };
 
   return (
     <Box>
-      <Typography variant="h1">Create Company</Typography>
+      <Typography variant="h1">Change Company Details</Typography>
       <Box
         component="form"
         sx={{

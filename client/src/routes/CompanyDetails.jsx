@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Divider, Grid, Typography } from "@mui/material";
 import ImpactAreaDisplay from "../components/ImpactAreaDisplay.jsx";
+import { useLoaderData } from "react-router-dom";
 
 const ngoDetails = {
   companyName: "Global Humanitarian Aid",
@@ -34,6 +35,10 @@ const ngoDetails = {
 };
 
 function CompanyDetails() {
+  const data = useLoaderData();
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
   const [companyData, setCompanyData] = useState(ngoDetails);
 
   return (

@@ -109,6 +109,11 @@ const demoNgo = {
   ],
 };
 
+function companyDetailsLoader() {
+  return fetch("http://localhost:8000/company-details/?name=test").then((res) =>
+    res.json(),
+  );
+}
 export const routes = [
   {
     path: "/signin",
@@ -160,18 +165,14 @@ export const routes = [
         element: <AddCompany />,
         loader: () => {
           return {
-            data: "nothing in the add company form",
+            data: "loads nothing in add company",
           };
         },
       },
       {
         path: "/dashboard/company-details",
         element: <CompanyDetails />,
-        loader: () => {
-          return {
-            data: "nothing in the company details",
-          };
-        },
+        loader: companyDetailsLoader,
       },
       {
         path: "/dashboard/set-goals",
