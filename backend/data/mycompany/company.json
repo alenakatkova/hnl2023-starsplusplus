@@ -1,0 +1,22 @@
+{
+  "companyName": "mycompany",
+  "address": "myhouse",
+  "impactAreas": [
+    {
+      "id": "1699784487986",
+      "value": "environment",
+      "metrics": [
+        {
+          "id": "1699784493407",
+          "name": "trees ",
+          "unit": "planted"
+        },
+        {
+          "id": "1699784499315",
+          "name": "air",
+          "unit": "cleaned"
+        }
+      ]
+    }
+  ]
+}
