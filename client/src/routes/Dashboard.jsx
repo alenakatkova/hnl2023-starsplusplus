@@ -12,6 +12,16 @@ function Dashboard() {
     setEvents(data.data);
   }, [events]);
 
+  const [pieChart, setPieChart] = useState(<svg />);
+  useEffect(() => {
+    fetch("http://localhost:8000/get_piechart/?name=test")
+      .then((res) => {
+        return res.text();
+      })
+      .then((res) => setPieChart(res))
+      .then(() => console.log(pieChart));
+  }, []);
+
   return (
     <Box>
       <Typography variant="h1">Dashboard</Typography>
@@ -83,7 +93,13 @@ function Dashboard() {
             height: "100px",
             width: "30%",
           }}
-        ></Box>
+        >
+          <object
+            type="image/svg+xml"
+            data={`data:image/svg+xml;utf8,${encodeURIComponent(pieChart)}`}
+          ></object>
+          ;
+        </Box>
         <Box
           sx={{
             ...CARD_STYLES,
