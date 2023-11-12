@@ -65,6 +65,14 @@ class Event(BaseModel):
     event: str
     fields: List[Field]
 
+class Goal(BaseModel):
+    area: str
+    metric: str
+    year: int
+    target: int
+    currentValue: int
+    unit: str
+
 
 @app.post("/add-company/")
 async def add_company(company_data: CompanyData):
@@ -108,16 +116,16 @@ async def get_company(name: str):
     - name: The name of the company to retrieve.
     """
     filename = data_path+name+'/company.json'
-    if os.path.exists(filename):
-        
+    
+    try:    
         with open(filename, 'r') as f:
             company_data = f.read().replace("\n", "")
         return {"company_data": company_data}
-    else:
+    except:
         raise HTTPException(status_code=404, detail="Company not found")
     
 @app.post("/add-event/")
-async def add_company(name: str, event_data: Event):
+async def add_event(name: str, event_data: Event):
     """
     Create a new event entry.
 
@@ -137,14 +145,45 @@ async def get_event(name:str, event: str):
     Get data for a specific event by event name.
 
     Parameters:
-    - name: The name of the company to retrieve.
+    - name: The name of the event to retrieve.
     """
     try:
         with open(data_path+name+'/'+event+'.json', 'r') as f:
             event_data = f.read().replace("\n", "")
         return {"event_data": event_data}
     except:
+        raise HTTPException(status_code=404, detail="Company event not found")
+    
+@app.post("/add-goal/")
+async def add_goal(name: str, goal_data: Goal):
+    """
+    Create a new goal entry.
+
+    Parameters:
+    - goal_data: JSON payload containing goal information.
+    """
+    try:
+        with open(data_path+name+'/'+goal_data.metric+"_goal.json", "a") as file:
+            json.dump(goal_data.dict(), file, indent=2)
+    except:
         raise HTTPException(status_code=404, detail="Company not found")
+
+
+@app.get("/get-goal/")
+async def get_goal(name:str, metric: str):
+    """
+    Get data for a specific event by event name.
+
+    Parameters:
+    - name: The name of the company to retrieve.
+    """
+    try:
+        with open(data_path+name+'/'+metric+'_goal.json', 'r') as f:
+            goal_data = f.read().replace("\n", "")
+        return {"goal_data": goal_data}
+    except:
+        raise HTTPException(status_code=404, detail="Company event not found")
+    
     
 @app.get("/get_barplot")
 async def get_svg(name: str):
