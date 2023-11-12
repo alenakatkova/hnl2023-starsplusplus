@@ -1,13 +1,13 @@
-# [Hack n Lead](https://womenplusplus.ch/hacknlead)
+# [Signimpact - Impact tracker]
 
-===
+How can you track your NGO's impact? Go no further, we have a solution for you! With Signifimpact you can create your company profile, including your impact areas and metrics. You will then be able to set your goals and upload your current achievements. Our User-friendly dashboard allows you to track your progress and your volounteers will be able to add their inputs via personal links.
 
-## Steps
+This project was created during hack'n lead 2023 by the StarsPlusPlus team.
 
-1. Use this repository as a template (or Fork it)
-2. Add your team members as contributors
-3. Put your presentation in the `docs/` folder
-4. This repository **must** be open source (and licensed) in order to submit
-5. Add the tag `hack-n-lead` to the repo description
+## Backend installation
 
+1. Make sure you have Python>=3.8 installed
+2. cd backend/
+3. pip install -r requirements .
+4. To run the server: python main.py
 
