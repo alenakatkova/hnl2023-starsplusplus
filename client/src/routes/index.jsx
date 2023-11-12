@@ -8,6 +8,7 @@ import SetGoals from "./SetGoals.jsx";
 import Goals from "./Goals.jsx";
 import AddEvent from "./AddEvent.jsx";
 import CreateCustomForm from "./CreateCustomForm.jsx";
+import Events from "./Events.jsx";
 
 const demoEvents = [
   {
@@ -139,6 +140,15 @@ export const routes = [
       {
         index: true,
         element: <Dashboard />,
+        loader: () => {
+          return {
+            data: demoEvents,
+          };
+        },
+      },
+      {
+        path: "/dashboard/events",
+        element: <Events />,
         loader: () => {
           return {
             data: demoEvents,
