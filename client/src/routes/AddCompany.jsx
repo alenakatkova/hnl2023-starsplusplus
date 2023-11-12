@@ -165,7 +165,7 @@ function AddCompany() {
         <Button
           onClick={addImpactArea}
           startIcon={<AddCircleOutlineIcon />}
-          sx={{ backgroundColor: "white" }}
+          sx={{ backgroundColor: "white", color: "gray" }}
         >
           Add Impact Area
         </Button>

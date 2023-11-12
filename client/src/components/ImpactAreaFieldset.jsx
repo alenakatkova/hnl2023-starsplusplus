@@ -101,7 +101,7 @@ function ImpactAreaComponent({
       <Button
         onClick={addMetric}
         startIcon={<AddCircleOutlineIcon />}
-        sx={{ backgroundColor: "white" }}
+        sx={{ backgroundColor: "white", color: "gray" }}
       >
         Add Metric
       </Button>
