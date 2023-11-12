@@ -167,6 +167,7 @@ function Dashboard() {
           {demoFiles.map((document) => {
             return (
               <Box
+                key={document.name}
                 sx={{
                   borderRadius: "17px",
                   py: "10px",

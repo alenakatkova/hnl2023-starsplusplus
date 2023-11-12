@@ -12,10 +12,11 @@ import {
 } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { CARD_STYLES } from "../style-constants.js";
 
 function CreateCustomForm({ onSubmitForm }) {
+  const navigate = useNavigate();
   const [selectedEvent, setSelectedEvent] = useState("");
   const [formFields, setFormFields] = useState([]);
   const [events, setEvents] = useState([]);
@@ -67,9 +68,7 @@ function CreateCustomForm({ onSubmitForm }) {
   };
 
   const handleSubmit = () => {
-    if (typeof onSubmitForm === "function") {
-      onSubmitForm({ eventId: selectedEvent, fields: formFields });
-    }
+    navigate("/sample-form");
     console.log(formFields);
   };
 
