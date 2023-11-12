@@ -28,28 +28,43 @@ function SignIn() {
 
   return (
     <Box
-      component="form"
-      sx={{ width: "320px", display: "flex", flexDirection: "column", gap: 2 }}
-      onSubmit={handleSubmit}
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100vw",
+        height: "100vh",
+      }}
     >
-      <TextField
-        name="email"
-        label="Email"
-        variant="outlined"
-        value={formData.email}
-        onChange={handleChange}
-      />
-      <TextField
-        name="password"
-        label="Password"
-        type="password"
-        variant="outlined"
-        value={formData.password}
-        onChange={handleChange}
-      />
-      <Button type="submit" variant="contained" color="primary">
-        Sign In
-      </Button>
+      <Box
+        component="form"
+        sx={{
+          width: "320px",
+          display: "flex",
+          flexDirection: "column",
+          gap: 2,
+        }}
+        onSubmit={handleSubmit}
+      >
+        <TextField
+          name="email"
+          label="Email"
+          variant="outlined"
+          value={formData.email}
+          onChange={handleChange}
+        />
+        <TextField
+          name="password"
+          label="Password"
+          type="password"
+          variant="outlined"
+          value={formData.password}
+          onChange={handleChange}
+        />
+        <Button type="submit" variant="contained" color="primary">
+          Sign In
+        </Button>
+      </Box>
     </Box>
   );
 }

@@ -116,7 +116,7 @@ function companyDetailsLoader() {
 }
 export const routes = [
   {
-    path: "/signin",
+    path: "/",
     element: <SignIn />,
     loader: () => {
       return {
