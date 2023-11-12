@@ -7,14 +7,10 @@ import {
   MenuItem,
   TextField,
   Button,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
+  Typography,
+  Grid,
 } from "@mui/material";
+import { CARD_STYLES } from "../style-constants.js";
 
 const ngoDetails = {
   companyName: "Global Humanitarian Aid",
@@ -71,64 +67,116 @@ function SetGoals() {
   };
 
   return (
-    <Box
-      component="form"
-      onSubmit={handleSubmit}
-      sx={{ "& .MuiFormControl-root": { m: 1, minWidth: 200 } }}
-    >
-      <FormControl fullWidth>
-        <InputLabel>Impact Area</InputLabel>
-        <Select
-          value={selectedArea}
-          label="Impact Area"
-          onChange={handleAreaChange}
-        >
-          {ngoDetails.impactAreas.map((area) => (
-            <MenuItem key={area.id} value={area.id}>
-              {area.value}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
-      <FormControl fullWidth>
-        <InputLabel>Impact Metric</InputLabel>
-        <Select
-          value={selectedMetric}
-          label="Impact Metric"
-          onChange={handleMetricChange}
-          disabled={!selectedArea}
-        >
-          {selectedArea &&
-            ngoDetails.impactAreas
-              .find((area) => area.id === selectedArea)
-              ?.metrics.map((metric) => (
-                <MenuItem key={metric.id} value={metric.id}>
-                  {metric.name} in {metric.unit}
-                </MenuItem>
-              ))}
-        </Select>
-      </FormControl>
-
-      <TextField
-        label="Reporting Year"
-        type="number"
-        value={reportingYear}
-        onChange={(e) => setReportingYear(e.target.value)}
-        fullWidth
-      />
-
-      <TextField
-        label="Target Value"
-        type="number"
-        value={targetValue}
-        onChange={(e) => setTargetValue(e.target.value)}
-        fullWidth
-      />
-
-      <Button type="submit" variant="contained" color="primary">
-        Set Goal
-      </Button>
+    <Box>
+      <Typography variant="h1">Set Goal</Typography>
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{
+          ...CARD_STYLES,
+          width: "50%",
+          "& .MuiFormControl-root": { m: 1 },
+        }}
+      >
+        <Grid container spacing={3}>
+          <Grid item xs={6}>
+            <FormControl fullWidth>
+              <Typography
+                component="label"
+                sx={{
+                  fontSize: "18px",
+                  fontWeight: 400,
+                  marginBottom: "15px",
+                }}
+              >
+                Impact Area
+              </Typography>
+              <Select value={selectedArea} onChange={handleAreaChange}>
+                {ngoDetails.impactAreas.map((area) => (
+                  <MenuItem key={area.id} value={area.id}>
+                    {area.value}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={6}>
+            <FormControl fullWidth>
+              <Typography
+                component="label"
+                sx={{
+                  fontSize: "18px",
+                  fontWeight: 400,
+                  marginBottom: "15px",
+                }}
+              >
+                Impact Metric
+              </Typography>
+              <Select
+                value={selectedMetric}
+                label="Impact Metric"
+                onChange={handleMetricChange}
+                disabled={!selectedArea}
+              >
+                {selectedArea &&
+                  ngoDetails.impactAreas
+                    .find((area) => area.id === selectedArea)
+                    ?.metrics.map((metric) => (
+                      <MenuItem key={metric.id} value={metric.id}>
+                        {metric.name} in {metric.unit}
+                      </MenuItem>
+                    ))}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={6}>
+            <Typography
+              component="label"
+              sx={{
+                fontSize: "18px",
+                fontWeight: 400,
+                marginBottom: "15px",
+              }}
+            >
+              Reporting Year
+            </Typography>
+            <TextField
+              type="number"
+              value={reportingYear}
+              onChange={(e) => setReportingYear(e.target.value)}
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <Typography
+              component="label"
+              sx={{
+                fontSize: "18px",
+                fontWeight: 400,
+                marginBottom: "15px",
+              }}
+            >
+              Target Value
+            </Typography>
+            <TextField
+              type="number"
+              value={targetValue}
+              onChange={(e) => setTargetValue(e.target.value)}
+              fullWidth
+            />
+          </Grid>
+          <Box sx={{ width: "100%" }}>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              sx={{ display: "block", margin: "0 auto", mt: 2 }}
+            >
+              Set Goal
+            </Button>
+          </Box>
+        </Grid>
+      </Box>
     </Box>
   );
 }

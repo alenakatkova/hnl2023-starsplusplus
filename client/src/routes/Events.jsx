@@ -5,7 +5,7 @@ import { CARD_STYLES } from "../style-constants.js";
 
 const EVENT_LABEL_STYLES = { fontSize: "14px", fontWeight: 600 };
 const EVENT_INFO_STYLES = { fontSize: "16px" };
-function Dashboard() {
+function Events() {
   const [events, setEvents] = useState([]);
   const data = useLoaderData();
   useEffect(() => {
@@ -14,10 +14,10 @@ function Dashboard() {
 
   return (
     <Box>
-      <Typography variant="h1">Dashboard</Typography>
+      <Typography variant="h1">Events</Typography>
       <Box sx={{ ...CARD_STYLES, padding: "30px" }}>
         <Typography variant="h2" sx={{ marginBottom: "25px" }}>
-          Events
+          Future Events
         </Typography>
         {events &&
           events.map((event) => {
@@ -93,8 +93,11 @@ function Dashboard() {
           }}
         ></Box>
       </Box>
+      <Typography variant="h2" sx={{ marginBottom: "25px" }}>
+        Past Events Events
+      </Typography>
     </Box>
   );
 }
 
-export default Dashboard;
+export default Events;
