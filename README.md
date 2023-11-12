@@ -1,8 +1,8 @@
 # [Signimpact - Impact tracker]
 
-How can you track your NGO's impact? Go no further, we have a solution for you! With Signifimpact you can create your company profile, including your impact areas and metrics. You will then be able to set your goals and upload your current achievements. Our User-friendly dashboard allows you to track your progress and your volounteers will be able to add their inputs via personal links.
+How can you track your NGO's impact? Go no further, we have a solution for you! The application is intended for use in the management of non-profit organizations and allows you to create a profile and set criteria for evaluating ongoing events and projects. It also helps create feedback forms to interact with volunteers and project managers to collect information and conduct further analysis. Our User-friendly dashboard allows you to track your progress.
 
-This project was created during hack'n lead 2023 by the StarsPlusPlus team.
+This project was created during hack'n lead 2023 by the Stars++ team. 
 
 ## Backend installation
 
@@ -10,4 +10,19 @@ This project was created during hack'n lead 2023 by the StarsPlusPlus team.
 2. cd backend/
 3. pip install -r requirements .
 4. To run the server: python main.py
+
+## Frontend installation
+
+## Additional materials
+
+1. Our Figma design: https://www.figma.com/file/NBIqvMoEPv3AYdC2FlXpEh/Signifimpact?type=design&mode=design&t=rPBbSIA1jpk2fkmD-1
+
+
+
+### Developers: Stars++ team
+https://www.linkedin.com/in/alena-a-katkova/
+https://www.linkedin.com/in/chigusakeller/
+https://www.linkedin.com/in/amina-hargitai/
+https://www.linkedin.com/in/beatrice-moser/
+https://www.linkedin.com/in/natalia-kuraeva-zurich/
 
