@@ -10,7 +10,10 @@ const ngoDetails = {
     {
       id: 1,
       value: "Healthcare Assistance",
-      metrics: [{ id: 101, name: "Number of Clinics Set Up", unit: "clinics" }],
+      metrics: [
+        { id: 101, name: "Number of Clinics Set Up", unit: "clinics" },
+        { id: 102, name: "Grant Allocated", unit: "grants" },
+      ],
     },
     {
       id: 2,
@@ -18,7 +21,6 @@ const ngoDetails = {
       metrics: [
         { id: 201, name: "Schools Built", unit: "schools" },
         { id: 202, name: "Children Enrolled", unit: "students" },
-        { id: 203, name: "Grant Allocated", unit: "grants" },
       ],
     },
     {
@@ -41,18 +43,17 @@ function CompanyDetails() {
 
   return (
     <Box sx={{ padding: 2 }}>
-      <Typography sx={{ my: 2 }} variant="h4">
-        {companyData.companyName}
+      <Typography variant="h1">Company Details</Typography>
+
+      <Typography sx={{ my: 2 }} variant="h2">
+        Address
       </Typography>
-      <Divider />
-      <Typography sx={{ my: 2 }} variant="h6">
-        Address: {companyData.address}
-      </Typography>
-      <Divider />
-      <Typography sx={{ my: 2 }} variant="h5">
+      <Typography sx={{ my: 2 }}>{companyData.address}</Typography>
+
+      <Typography sx={{ my: 2 }} variant="h2">
         Impact Areas
       </Typography>
-      <Grid container spacing={2}>
+      <Grid container spacing={3} sx={{ alignItems: "stretch" }}>
         {companyData.impactAreas.map((impactArea) => (
           <Grid key={impactArea.id} xs={12} md={6} item>
             <ImpactAreaDisplay impactArea={impactArea} />
