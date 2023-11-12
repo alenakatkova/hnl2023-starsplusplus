@@ -8,8 +8,8 @@ from typing import List
 app = FastAPI()
 
 origins = [
-    "http://localhost:3000",
-    "localhost:3000"
+    "http://localhost:5173",
+    "localhost:5173"
 ]
 
 
@@ -47,8 +47,8 @@ class CompanyData(BaseModel):
 # In-memory storage for demonstration purposes
 companies_database = []
 
-@app.post("/create_company/")
-async def create_company(company_data: CompanyData):
+@app.post("/add-company/")
+async def add_company(company_data: CompanyData):
     """
     Create a new company entry.
 
@@ -58,7 +58,7 @@ async def create_company(company_data: CompanyData):
     companies_database.append(company_data)
     return {"message": "Company created successfully", "company_data": company_data}
 
-@app.get("/get_company/")
+@app.get("/company-details/")
 async def get_company(name: str):
     """
     Get data for a specific company by name.
