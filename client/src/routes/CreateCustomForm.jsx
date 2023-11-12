@@ -86,8 +86,17 @@ function CreateCustomForm({ onSubmitForm }) {
         }}
         onSubmit={handleSubmit}
       >
-        <FormControl fullWidth sx={{ mb: 2 }}>
-          <InputLabel>Select Event</InputLabel>
+        <FormControl fullWidth sx={{ my: 1, mb: 2 }}>
+          <Typography
+            component="label"
+            sx={{
+              fontSize: "1em",
+              fontWeight: 400,
+              marginBottom: "10px",
+            }}
+          >
+            Select Event
+          </Typography>
           <Select
             value={selectedEvent}
             label="Select Event"
@@ -103,11 +112,19 @@ function CreateCustomForm({ onSubmitForm }) {
 
         {formFields.map((field, index) => (
           <Box key={field.id} sx={{ mb: 2 }}>
-            <FormControl fullWidth sx={{ mb: 1 }}>
-              <InputLabel>Field Type</InputLabel>
+            <FormControl fullWidth sx={{ my: 1 }}>
+              <Typography
+                component="label"
+                sx={{
+                  fontSize: "1em",
+                  fontWeight: 400,
+                  marginBottom: "10px",
+                }}
+              >
+                Field Type
+              </Typography>
               <Select
                 value={field.type}
-                label="Field Type"
                 onChange={(e) => handleFieldTypeChange(index, e.target.value)}
               >
                 <MenuItem value="text">Text</MenuItem>
@@ -117,12 +134,23 @@ function CreateCustomForm({ onSubmitForm }) {
                 <MenuItem value="textarea">Textarea</MenuItem>
               </Select>
             </FormControl>
-            <TextField
-              fullWidth
-              label={`Field Label (${index + 1})`}
-              value={field.label}
-              onChange={(e) => handleFieldLabelChange(index, e.target.value)}
-            />
+            <FormControl fullWidth sx={{ my: 1 }}>
+              <Typography
+                component="label"
+                sx={{
+                  fontSize: "1em",
+                  fontWeight: 400,
+                  marginBottom: "10px",
+                }}
+              >
+                Field Label #{index + 1}
+              </Typography>
+              <TextField
+                fullWidth
+                value={field.label}
+                onChange={(e) => handleFieldLabelChange(index, e.target.value)}
+              />
+            </FormControl>
             {field.type === "checkbox" && (
               <Box sx={{ mt: 2 }}>
                 {field.options.map((option, optIndex) => (

@@ -17,7 +17,7 @@ function DashboardTopBar() {
       sx={{
         borderBottom: 1,
         borderColor: "white",
-        boxShadow: "0px 2px 11px 0px #94949440",
+        boxShadow: "6px 8px 11px 0px #94949440",
         backgroundColor: "white",
         py: "9px",
       }}
@@ -56,7 +56,7 @@ function DashboardTopBar() {
 
 const Layout = () => {
   return (
-    <Grid container sx={{ minHeight: "100vh" }}>
+    <Grid container sx={{ minHeight: "100vh", flexWrap: "nowrap" }}>
       <Grid md={3} item>
         <Header />
       </Grid>
