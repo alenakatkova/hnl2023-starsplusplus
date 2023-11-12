@@ -93,7 +93,7 @@ function Goals() {
                     {goal.currentValue}
                   </Typography>
                   <IconButton
-                    ariaLabel="edit current value"
+                    aria-label="edit current value"
                     onClick={() => handleEdit(index)}
                   >
                     <EditIcon />
