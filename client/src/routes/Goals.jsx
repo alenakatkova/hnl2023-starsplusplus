@@ -10,10 +10,18 @@ import {
   TableRow,
   Button,
   Typography,
+  IconButton,
 } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
+import { CARD_STYLES } from "../style-constants.js";
 
+const TABLE_HEAD_STYLES = {
+  textTransform: "uppercase",
+  fontWeight: 600,
+  color: "gray",
+  textAlign: "center",
+};
 function Goals() {
   const [goals, setGoals] = useState([]);
   const data = useLoaderData();
@@ -51,21 +59,19 @@ function Goals() {
   };
 
   return (
-    <Box sx={{ width: "100%", border: "1px solid red" }}>
-      <Typography component="h1" sx={{ mb: 2 }}>
-        Goals
-      </Typography>
+    <Box sx={{ width: "100%" }}>
+      <Typography variant="h1">Goals</Typography>
       <TableContainer component={Paper} sx={{ width: "100%" }}>
         <Table sx={{ width: "100%" }}>
-          <TableHead>
+          <TableHead sx={{ ...CARD_STYLES }}>
             <TableRow>
-              <TableCell>Impact Area</TableCell>
-              <TableCell>Impact Metric</TableCell>
-              <TableCell>Unit</TableCell>
-              <TableCell>Reporting Year</TableCell>
-              <TableCell>Current Value</TableCell> {/* New Column */}
-              <TableCell>Target Value</TableCell>
-              <TableCell>Status</TableCell>
+              <TableCell sx={TABLE_HEAD_STYLES}>Impact Area</TableCell>
+              <TableCell sx={TABLE_HEAD_STYLES}>Impact Metric</TableCell>
+              <TableCell sx={TABLE_HEAD_STYLES}>Unit</TableCell>
+              <TableCell sx={TABLE_HEAD_STYLES}>Reporting Year</TableCell>
+              <TableCell sx={TABLE_HEAD_STYLES}>Current Value</TableCell>{" "}
+              <TableCell sx={TABLE_HEAD_STYLES}>Target Value</TableCell>
+              <TableCell sx={TABLE_HEAD_STYLES}>Status</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -75,11 +81,23 @@ function Goals() {
                 <TableCell>{goal.metric}</TableCell>
                 <TableCell>{goal.unit}</TableCell>
                 <TableCell>{goal.year}</TableCell>
-                <TableCell>
-                  {goal.currentValue}
-                  <Button onClick={() => handleEdit(index)}>
-                    <EditIcon /> {/* Edit button with icon */}
-                  </Button>
+                <TableCell
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography sx={{ lineHeight: "24px" }}>
+                    {goal.currentValue}
+                  </Typography>
+                  <IconButton
+                    ariaLabel="edit current value"
+                    onClick={() => handleEdit(index)}
+                  >
+                    <EditIcon />
+                  </IconButton>
                 </TableCell>
                 <TableCell>{goal.target}</TableCell>
                 <TableCell>
