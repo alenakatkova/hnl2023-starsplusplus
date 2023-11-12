@@ -7,7 +7,8 @@ import {
   FileDownload,
   ShareSharp,
 } from "@mui/icons-material";
-
+import chart1 from "../assets/test_progressbar.svg";
+import chart2 from "../assets/test_piechart.svg";
 const demoFiles = [
   { name: "Document_09.csv", uploaded: "14.04.2023", src: "templateDataTable" },
   { name: "Document_10.csv", uploaded: "17.04.2023", src: "templateDataTable" },
@@ -132,11 +133,13 @@ function Dashboard() {
           <Typography variant="h2" sx={{ marginBottom: "10px" }}>
             Goals Progress
           </Typography>
-          <object
-            width="100%"
-            type="image/svg+xml"
-            data={`data:image/svg+xml;utf8,${encodeURIComponent(barPlot)}`}
-          ></object>
+          {barPlot && (
+            <object
+              width="100%"
+              type="image/svg+xml"
+              data={`data:image/svg+xml;utf8,${encodeURIComponent(barPlot)}`}
+            ></object>
+          )}
         </Box>
         <Box
           sx={{
@@ -148,11 +151,13 @@ function Dashboard() {
           <Typography variant="h2" sx={{ marginBottom: "10px" }}>
             Events Participants
           </Typography>
-          <object
-            width="100%"
-            type="image/svg+xml"
-            data={`data:image/svg+xml;utf8,${encodeURIComponent(pieChart)}`}
-          ></object>
+          {pieChart && (
+            <object
+              width="100%"
+              type="image/svg+xml"
+              data={`data:image/svg+xml;utf8,${encodeURIComponent(pieChart)}`}
+            ></object>
+          )}
         </Box>
         <Box
           sx={{
@@ -167,6 +172,7 @@ function Dashboard() {
           {demoFiles.map((document) => {
             return (
               <Box
+                key={document.name}
                 sx={{
                   borderRadius: "17px",
                   py: "10px",
