@@ -15,8 +15,10 @@ function Dashboard() {
   return (
     <Box>
       <Typography variant="h1">Dashboard</Typography>
-      <Box sx={{ ...CARD_STYLES, padding: "35px" }}>
-        <Typography variant="h2">Events</Typography>
+      <Box sx={{ ...CARD_STYLES, padding: "30px" }}>
+        <Typography variant="h2" sx={{ marginBottom: "25px" }}>
+          Events
+        </Typography>
         {events &&
           events.map((event) => {
             return (

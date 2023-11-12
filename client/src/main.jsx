@@ -17,11 +17,10 @@ const theme = createTheme({
       marginBottom: "40px",
     },
     h2: {
-      fontSize: "24px",
-      fontWeight: 500,
+      fontSize: "1.1em",
+      fontWeight: 600,
       color: "black",
-      marginBottom: "10px",
-      marginTop: 0,
+      margin: 0,
     },
     companyName: {
       fontSize: "1.8em",
