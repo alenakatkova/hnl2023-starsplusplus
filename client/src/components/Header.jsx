@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo_big.png";
 import { FileUpload } from "@mui/icons-material";
 
 const AAD_NAV_LINK_STYLES = {

@@ -22,13 +22,21 @@ function Dashboard() {
   }, [events]);
 
   const [pieChart, setPieChart] = useState(<svg />);
+  const [barPlot, setBarPlot] = useState(<svg />);
+
   useEffect(() => {
     fetch("http://localhost:8000/get_piechart/?name=test")
       .then((res) => {
         return res.text();
       })
-      .then((res) => setPieChart(res))
-      .then(() => console.log(pieChart));
+      .then((res) => setPieChart(res));
+  }, []);
+  useEffect(() => {
+    fetch("http://localhost:8000/get_barplot/?name=test")
+      .then((res) => {
+        return res.text();
+      })
+      .then((res) => setBarPlot(res));
   }, []);
 
   const onDownload = () => {
@@ -118,10 +126,18 @@ function Dashboard() {
           sx={{
             ...CARD_STYLES,
             padding: "35px",
-            height: "100px",
             width: "30%",
           }}
-        ></Box>
+        >
+          <Typography variant="h2" sx={{ marginBottom: "10px" }}>
+            Goals Progress
+          </Typography>
+          <object
+            width="100%"
+            type="image/svg+xml"
+            data={`data:image/svg+xml;utf8,${encodeURIComponent(barPlot)}`}
+          ></object>
+        </Box>
         <Box
           sx={{
             ...CARD_STYLES,
@@ -129,6 +145,9 @@ function Dashboard() {
             width: "30%",
           }}
         >
+          <Typography variant="h2" sx={{ marginBottom: "10px" }}>
+            Events Participants
+          </Typography>
           <object
             width="100%"
             type="image/svg+xml"
