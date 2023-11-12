@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo_big.png";
+import { FileUpload } from "@mui/icons-material";
 
 const AAD_NAV_LINK_STYLES = {
   display: "inline-block",
@@ -9,7 +10,7 @@ const AAD_NAV_LINK_STYLES = {
   fontWeight: 500,
   fontSize: "18px",
   lineHeight: "20px",
-  color: "#000000",
+  color: "#2089EF",
   marginBottom: "10px",
 };
 
@@ -19,7 +20,7 @@ const NAV_LINK_STYLES = {
   fontWeight: 400,
   fontSize: "18px",
   lineHeight: "20px",
-  color: "#000000",
+  color: "black",
   marginBottom: "10px",
 };
 
@@ -29,7 +30,7 @@ const PLUS_STYLES = {
   fontStyle: "normal",
   fontWeight: 600,
   fontSize: "24px",
-  color: "#000000",
+  color: "#2089EF",
 };
 
 const Header = () => {
@@ -62,13 +63,12 @@ const Header = () => {
         >
           <img src={logo} alt="Company Logo" width="160px" />
         </Box>
-
-        <NavLink to="/dashboard/add-company">
-          <Typography component="span" sx={PLUS_STYLES}>
+        <NavLink to="/dashboard/add-event">
+          <Typography component="span" component="span" sx={PLUS_STYLES}>
             +
           </Typography>
           <Typography component="span" sx={AAD_NAV_LINK_STYLES}>
-            Add Company
+            Create Event
           </Typography>
         </NavLink>
         <NavLink to="/dashboard/set-goals">
@@ -79,12 +79,13 @@ const Header = () => {
             Set Goals
           </Typography>
         </NavLink>
-        <NavLink to="/dashboard/add-event">
-          <Typography component="span" component="span" sx={PLUS_STYLES}>
+
+        <NavLink to="/dashboard/create-custom-form">
+          <Typography component="span" sx={PLUS_STYLES}>
             +
           </Typography>
           <Typography component="span" sx={AAD_NAV_LINK_STYLES}>
-            Add Event
+            Create custom from
           </Typography>
         </NavLink>
         <NavLink to="/dashboard">
@@ -94,26 +95,32 @@ const Header = () => {
         </NavLink>
         <NavLink to="/dashboard/company-details">
           <Typography component="span" sx={NAV_LINK_STYLES}>
-            Company Details :: NOT STYLED YET
+            Company Details
           </Typography>
         </NavLink>
         <NavLink to="/dashboard/goals">
           <Typography component="span" sx={NAV_LINK_STYLES}>
-            Goals :: NOT STYLED YET
+            Goals
           </Typography>
         </NavLink>
 
         <NavLink to="/dashboard/events">
           <Typography component="span" sx={NAV_LINK_STYLES}>
-            Events :: NOT WORKING YET
+            Events
           </Typography>
         </NavLink>
-
-        <NavLink to="/dashboard/create-custom-form">
-          <Typography component="span" sx={NAV_LINK_STYLES}>
-            Create custom from :: SHOULD MOVE TO EVENTS PAGE
-          </Typography>
-        </NavLink>
+        <Button
+          sx={{
+            borderRadius: "17px",
+            py: "15px",
+            width: "100%",
+            backgroundColor: "#2089EF",
+            color: "white",
+          }}
+        >
+          <FileUpload />
+          Upload Data
+        </Button>
       </Box>
     </Box>
   );

@@ -185,7 +185,7 @@ async def get_goal(name:str, metric: str):
     
 @app.get("/get_barplot")
 async def get_svg(name: str):
-    svg_path = "test_barplot.svg"
+    svg_path = "test_progressbar.svg"
     return FileResponse(svg_path, media_type="image/svg+xml")
 
 

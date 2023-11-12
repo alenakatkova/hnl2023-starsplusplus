@@ -106,7 +106,7 @@ function AddCompany() {
 
   return (
     <Box>
-      <Typography variant="h1">Create Company</Typography>
+      <Typography variant="h1">Change Company Details</Typography>
       <Box
         component="form"
         sx={{
