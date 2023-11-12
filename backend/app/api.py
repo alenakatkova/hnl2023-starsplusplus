@@ -17,6 +17,8 @@ origins = [
     "localhost:5173"
 ]
 
+data_path = 'data/'
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -49,6 +51,19 @@ class CompanyData(BaseModel):
     impactAreas: List[ImpactArea]
 
 
+class Option(BaseModel):
+    id: str
+    value: str
+
+class Field(BaseModel):
+    id: str
+    type: str
+    label: str
+    options: List[Option]
+
+class Event(BaseModel):
+    event: str
+    fields: List[Field]
 
 
 @app.post("/add-company/")
@@ -59,24 +74,28 @@ async def add_company(company_data: CompanyData):
     Parameters:
     - company_data: JSON payload containing company information.
     """
-    
-    with open('data/'+company_data.companyName+".json", "a") as file:
+    company_dir = company_data.companyName+'/'
+
+    if ~os.path.exists(data_path+company_dir):
+        os.mkdir(data_path+company_dir)
+
+    with open(data_path+company_dir+"company.json", "a") as file:
         json.dump(company_data.dict(), file, indent=2)
 
     d_company = {'name': [company_data.companyName], 'address': [company_data.address]}
     df_company = pd.DataFrame(data=d_company)
-    df_company.to_csv('data/'+company_data.companyName+'.csv')
+    df_company.to_csv(data_path+company_dir+'company.csv')
 
     d_impact = {'impact_id': [area.id for area in company_data.impactAreas], 'impact_metric': [area.value for area in company_data.impactAreas]}
     df_impact = pd.DataFrame(data=d_impact)
-    df_impact.to_csv('data/'+company_data.companyName+'_impact.csv')
+    df_impact.to_csv(data_path+company_dir+'company_impact.csv')
 
     for area in company_data.impactAreas:
         d_metrics = {'metric_id': [metric.id for metric in area.metrics], 'impact_metric': [metric.name for metric in area.metrics],
                      'metric_unit': [metric.unit for metric in area.metrics]}
         
         df_metric = pd.DataFrame(data=d_metrics)
-        df_metric.to_csv('data/'+company_data.companyName+'_'+area.value+'_metric.csv')
+        df_metric.to_csv(data_path+company_dir+area.value+'_metric.csv')
     
     return {"message": "Company created successfully", "company_data": company_data}
 
@@ -88,23 +107,53 @@ async def get_company(name: str):
     Parameters:
     - name: The name of the company to retrieve.
     """
-    filename = name+'.json'
+    filename = data_path+name+'/company.json'
     if os.path.exists(filename):
         
-        with open('data/'+filename, 'r') as f:
+        with open(filename, 'r') as f:
             company_data = f.read().replace("\n", "")
         return {"company_data": company_data}
     else:
         raise HTTPException(status_code=404, detail="Company not found")
     
+@app.post("/add-event/")
+async def add_company(name: str, event_data: Event):
+    """
+    Create a new event entry.
+
+    Parameters:
+    - company_data: JSON payload containing company information.
+    """
+    try:
+        with open(data_path+name+'/'+event_data.event+".json", "a") as file:
+            json.dump(event_data.dict(), file, indent=2)
+    except:
+        raise HTTPException(status_code=404, detail="Company not found")
+
+
+@app.get("/get-event/")
+async def get_event(name:str, event: str):
+    """
+    Get data for a specific event by event name.
+
+    Parameters:
+    - name: The name of the company to retrieve.
+    """
+    try:
+        with open(data_path+name+'/'+event+'.json', 'r') as f:
+            event_data = f.read().replace("\n", "")
+        return {"event_data": event_data}
+    except:
+        raise HTTPException(status_code=404, detail="Company not found")
+    
 @app.get("/get_barplot")
 async def get_svg(name: str):
-    svg_path = name+"_barplot.svg"
+    svg_path = "test_barplot.svg"
     return FileResponse(svg_path, media_type="image/svg+xml")
 
 
 
 @app.get("/get_piechart")
 async def get_svg(name: str):
-    svg_path = name+"_piechart.svg"
+    svg_path ="test_piechart.svg"
     return FileResponse(svg_path, media_type="image/svg+xml")
