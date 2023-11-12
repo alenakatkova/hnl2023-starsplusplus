@@ -14,4 +14,20 @@
       ]
     }
   ]
+}{
+  "companyName": "test",
+  "address": "fwui",
+  "impactAreas": [
+    {
+      "id": "1699777007658",
+      "value": "fwe",
+      "metrics": [
+        {
+          "id": "1699777010599",
+          "name": "fwe",
+          "unit": "fweew"
+        }
+      ]
+    }
+  ]
 }

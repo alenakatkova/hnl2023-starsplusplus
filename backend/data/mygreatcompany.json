@@ -1,0 +1,112 @@
+{
+  "companyName": "mygreatcompany",
+  "address": "Here",
+  "impactAreas": [
+    {
+      "id": "1699780956987",
+      "value": "Environment",
+      "metrics": [
+        {
+          "id": "1699780961578",
+          "name": "trees",
+          "unit": "planted"
+        },
+        {
+          "id": "1699780969538",
+          "name": "water",
+          "unit": "saved"
+        },
+        {
+          "id": "1699780975169",
+          "name": "trash",
+          "unit": "collected"
+        }
+      ]
+    },
+    {
+      "id": "1699780983820",
+      "value": "Education",
+      "metrics": [
+        {
+          "id": "1699780991797",
+          "name": "Kids",
+          "unit": "educated"
+        }
+      ]
+    }
+  ]
+}{
+  "companyName": "mygreatcompany",
+  "address": "Here",
+  "impactAreas": [
+    {
+      "id": "1699780956987",
+      "value": "Environment",
+      "metrics": [
+        {
+          "id": "1699780961578",
+          "name": "trees",
+          "unit": "planted"
+        },
+        {
+          "id": "1699780969538",
+          "name": "water",
+          "unit": "saved"
+        },
+        {
+          "id": "1699780975169",
+          "name": "trash",
+          "unit": "collected"
+        }
+      ]
+    },
+    {
+      "id": "1699780983820",
+      "value": "Education",
+      "metrics": [
+        {
+          "id": "1699780991797",
+          "name": "Kids",
+          "unit": "educated"
+        }
+      ]
+    }
+  ]
+}{
+  "companyName": "mygreatcompany",
+  "address": "Here",
+  "impactAreas": [
+    {
+      "id": "1699780956987",
+      "value": "Environment",
+      "metrics": [
+        {
+          "id": "1699780961578",
+          "name": "trees",
+          "unit": "planted"
+        },
+        {
+          "id": "1699780969538",
+          "name": "water",
+          "unit": "saved"
+        },
+        {
+          "id": "1699780975169",
+          "name": "trash",
+          "unit": "collected"
+        }
+      ]
+    },
+    {
+      "id": "1699780983820",
+      "value": "Education",
+      "metrics": [
+        {
+          "id": "1699780991797",
+          "name": "Kids",
+          "unit": "educated"
+        }
+      ]
+    }
+  ]
+}
