@@ -40,7 +40,8 @@ const Header = () => {
         paddingTop: "35px",
         paddingBottom: "30px",
         backgroundColor: "#F8F8FB",
-        height: "100vh",
+        minHeight: "100vh",
+        height: "100%",
       }}
     >
       <Box

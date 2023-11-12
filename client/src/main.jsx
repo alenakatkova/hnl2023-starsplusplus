@@ -22,6 +22,12 @@ const theme = createTheme({
       color: "black",
       margin: 0,
     },
+    h3: {
+      fontSize: "1em",
+      fontWeight: 600,
+      color: "black",
+      margin: 0,
+    },
     companyName: {
       fontSize: "1.8em",
       fontWeight: 600,
