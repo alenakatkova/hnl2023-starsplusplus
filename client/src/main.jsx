@@ -11,8 +11,8 @@ const router = createBrowserRouter(routes);
 const theme = createTheme({
   typography: {
     h1: {
-      fontSize: "36px",
-      fontWeight: 500,
+      fontSize: "1.5em",
+      fontWeight: 600,
       color: "black",
       marginBottom: "40px",
     },
@@ -22,6 +22,11 @@ const theme = createTheme({
       color: "black",
       marginBottom: "10px",
       marginTop: 0,
+    },
+    companyName: {
+      fontSize: "1.8em",
+      fontWeight: 600,
+      color: "black",
     },
   },
   components: {

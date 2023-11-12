@@ -29,18 +29,21 @@ function DashboardTopBar() {
     >
       <Toolbar>
         <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
-          <SearchIcon sx={{ mr: 1 }} />
-          <InputBase
-            placeholder="Search…"
-            inputProps={{ "aria-label": "search" }}
-            sx={{
-              flex: 1,
-              border: "1px solid lightgray",
-              borderRadius: "10px",
-              paddingX: "10px",
-              marginX: "10px",
-            }}
-          />
+          {/*<SearchIcon sx={{ mr: 1 }} />*/}
+          {/*<InputBase*/}
+          {/*  placeholder="Search…"*/}
+          {/*  inputProps={{ "aria-label": "search" }}*/}
+          {/*  sx={{*/}
+          {/*    flex: 1,*/}
+          {/*    border: "1px solid lightgray",*/}
+          {/*    borderRadius: "10px",*/}
+          {/*    paddingX: "10px",*/}
+          {/*    marginX: "10px",*/}
+          {/*  }}*/}
+          {/*/>*/}
+          <Typography variant="companyName" component="h2" sx={{ margin: 0 }}>
+            Global Humanitarian Aid
+          </Typography>
         </Box>
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <Typography
@@ -73,9 +76,7 @@ const Layout = () => {
       </Grid>
       <Grid md={9} item sx={{ width: "100%", boxSizing: "border-box" }}>
         <DashboardTopBar />
-        <Box
-          sx={{ paddingLeft: "50px", paddingRight: "50px", paddingTop: "40px" }}
-        >
+        <Box sx={{ px: "50px", paddingBottom: "30px", paddingTop: "45px" }}>
           <Outlet />
         </Box>
       </Grid>
