@@ -66,40 +66,68 @@ function SampleForm() {
   };
 
   return (
-    <Box sx={{ width: "320px", margin: "0 auto" }}>
-      <Box sx={{ width: "160px", margin: "0 auto", my: "50px" }}>
-        <img src={logo} alt="Company logo" width="160px" />
-      </Box>
-
-      <Typography
-        variant="h1"
-        sx={{
-          margin: "0 auto",
-          display: "block",
-          textAlign: "center",
-          marginBottom: "30px",
-        }}
-      >
-        Education Awareness Week
-      </Typography>
-
+    <Box
+      sx={{ width: "100vw", minHeight: "100vh", backgroundColor: "#F6F6F6" }}
+    >
       <Box
-        component="form"
-        onSubmit={handleSubmit}
         sx={{
-          padding: "5px",
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-          width: "100%",
+          width: "340px",
+          margin: "0 auto",
+          backgroundColor: "white",
+          px: "10px",
+          paddingBottom: "20px",
           boxSizing: "border-box",
+          minHeight: "100vh",
         }}
       >
-        {sampleFormFields.map(renderFormField)}
+        <Box
+          sx={{
+            width: "160px",
+            margin: "0 auto",
+            py: "50px",
+            boxSizing: "border-box",
+          }}
+        >
+          <img src={logo} alt="Company logo" width="160px" />
+        </Box>
 
-        <Button type="submit" sx={{ color: "white" }}>
-          Submit Report
-        </Button>
+        <Typography
+          variant="h1"
+          sx={{
+            margin: "0 auto",
+            display: "block",
+            textAlign: "center",
+            marginBottom: "30px",
+          }}
+        >
+          Education Awareness Week
+        </Typography>
+
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          sx={{
+            padding: "5px",
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+            width: "100%",
+            boxSizing: "border-box",
+          }}
+        >
+          {sampleFormFields.map(renderFormField)}
+
+          <Button
+            type="submit"
+            sx={{
+              color: "white",
+              borderRadius: "16px",
+              backgroundColor: "#2089EF",
+            }}
+          >
+            Submit Report
+          </Button>
+        </Box>
       </Box>
     </Box>
   );
