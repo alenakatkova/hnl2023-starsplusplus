@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Button, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { CARD_STYLES } from "../style-constants.js";
 
 function SignIn() {
   const [formData, setFormData] = useState({
@@ -39,6 +40,7 @@ function SignIn() {
       <Box
         component="form"
         sx={{
+          ...CARD_STYLES,
           width: "320px",
           display: "flex",
           flexDirection: "column",
